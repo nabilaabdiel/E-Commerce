@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.abdiel.e_commerce.data.user.User" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                tools:context=".ui.home.HomeActivity">
+
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="24dp"
+                    imageUrlCircle='@{data.image}'
+                    android:background="@drawable/ic_round_person"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+                <ImageView
+                    android:id="@+id/btn_cart"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="26dp"
+                    android:src="@drawable/cart_icon"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+                    app:layout_constraintEnd_toStartOf="@id/iv_profile"
+                    app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="24dp"
+                    android:src="@drawable/icon_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_slogan_satu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/create_round"
+                    android:maxLength="25"
+                    android:text="Its okay to be a little"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_icon" />
+
+                <TextView
+                    android:id="@+id/tv_slogan_dua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/create_round"
+                    android:maxLength="25"
+                    android:text="Obsessed with shoes!"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_slogan_satu" />
+
+                <SearchView
+                    android:id="@+id/sv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="26dp"
+                    android:background="@drawable/background_search"
+                    android:iconifiedByDefault="false"
+                    android:imeOptions="actionSearch"
+                    android:queryBackground="@color/transparent"
+                    android:queryHint="Try”Yeezy Boost”"
+                    app:layout_constraintTop_toBottomOf="@id/tv_slogan_dua" />
+
+                <TextView
+                    android:id="@+id/popular_brands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="34dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Popular Brands"
+                    android:textColor="@color/item"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sv_home" />
+
+                <TextView
+                    android:id="@+id/tv_empty_popular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blank Data"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/popular_brands"/>
+
+                <TextView
+                    android:id="@+id/top_sneakers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="34dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Top Sneakers"
+                    android:textColor="@color/item"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_empty_popular" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/top_sneakers">
+
+                    <TextView
+                        android:id="@+id/tv_empty_recycle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="78dp"
+                        android:padding="35dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="14sp"
+                        android:text="Blank Data"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        tools:listitem="@layout/item_home"
+                        app:spanCount="2"
+                        android:paddingHorizontal="20dp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
