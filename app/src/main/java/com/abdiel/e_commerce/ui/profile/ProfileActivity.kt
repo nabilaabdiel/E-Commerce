@@ -53,7 +53,6 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>(R
     private fun getUser() {
         val users = session.getUser()
         binding.data = users
-        Log.d("apa?", "user:$users")
     }
 
     private fun observe() {

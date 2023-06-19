@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.abdiel.e_commerce"
-        minSdk 23
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -23,9 +23,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            manifestPlaceholders = [crashlyticsEnabled: false, performanceEnabled: false, usesCleartextTraffic: true]
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsEnabled: true, performanceEnabled: true, usesCleartextTraffic: false]
         }
     }
     compileOptions {
@@ -54,15 +60,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
 
     //Core
-    implementation 'com.github.crocodic-studio:AndroidCoreProject:4.0.7'
+    implementation 'com.github.crocodic-studio:AndroidCoreProject:4.0.10'
 
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-compiler:2.44.2'
 
     //Room
-    implementation 'androidx.room:room-ktx:2.5.0'
-    kapt 'androidx.room:room-compiler:2.5.0'
+    implementation 'androidx.room:room-ktx:2.5.1'
+    kapt 'androidx.room:room-compiler:2.5.1'
 
     //Circle
     implementation 'de.hdodenhof:circleimageview:3.1.0'
@@ -76,4 +82,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+kapt {
+    correctErrorTypes true
 }

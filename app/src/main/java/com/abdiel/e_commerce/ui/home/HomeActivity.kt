@@ -67,8 +67,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
         binding.rvHome.adapter = adapter
 
         viewModel.getAllProduct()
-
     }
+
     private fun observe() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -90,7 +90,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
                         listProductHome.addAll(it)
                         adapter.submitList(listProductHome)
                         binding.swipeRefresh.isRefreshing = false
-//                        binding.tvEmpty.isVisible = it.isEmpty()
+                        binding.tvEmptyRecycle.isVisible = it.isEmpty()
                     }
                 }
             }
@@ -120,7 +120,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             listProduct.addAll(listProductHome)
             binding.rvHome.adapter?.notifyItemInserted(0)
 //            adapter.submitList(listProduct)
-//            binding.tvEmptyRecycle.isVisible = listProduct.isEmpty()
+            binding.tvEmptyRecycle.isVisible = listProduct.isEmpty()
 
         } else {
 
@@ -134,7 +134,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             binding.rvHome.adapter?.notifyItemInserted(0)
 
             adapter.submitList(listProduct)
-//            binding.tvEmptyRecycle.isVisible = listProduct.isEmpty()
+            binding.tvEmptyRecycle.isVisible = listProduct.isEmpty()
 
         }
         if (listProduct.isEmpty()) {

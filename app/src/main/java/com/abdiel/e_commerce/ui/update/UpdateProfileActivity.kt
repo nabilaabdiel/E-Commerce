@@ -1,12 +1,28 @@
 package com.abdiel.e_commerce.ui.update
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.abdiel.e_commerce.R
+import com.abdiel.e_commerce.base.activity.BaseActivity
+import com.abdiel.e_commerce.databinding.ActivityUpdateProfileBinding
+import com.abdiel.e_commerce.session.Session
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class UpdateProfileActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class UpdateProfileActivity : BaseActivity<ActivityUpdateProfileBinding, UpdateProfileViewModel>(R.layout.activity_update_profile) {
+
+    @Inject
+    lateinit var session: Session
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_profile)
+
+        getUser()
+    }
+
+    //data user
+    private fun getUser() {
+        val users = session.getUser()
+        binding.user = users
     }
 }
